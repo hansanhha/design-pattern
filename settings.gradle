@@ -10,6 +10,11 @@ plugins {
     id 'org.gradle.toolchains.foojay-resolver-convention' version '0.7.0'
 }
 
-rootProject.name = 'design-pattern'
-include ('concept')
+rootProject.name = 'ccccomputer'
+include ('design-pattern')
+include 'network'
+include 'data-structure'
+include 'operating-system'
+include 'database'
+include 'algorithm'
 

@@ -1,0 +1,11 @@
+plugins {
+    id "com.hansanhha.computer.java"
+}
+
+group = 'com.hansanhha.computer'
+version = property "version.ccccomputer"
+
+dependencies {
+    testImplementation platform(libs.junit.bom)
+    testImplementation libs.junit.jupiter
+}

@@ -1,1 +1,1 @@
-[개념](./concept/README.md)
+[개념](design-pattern/README.md)
