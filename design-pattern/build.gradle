@@ -3,7 +3,6 @@ plugins {
 }
 
 group = "com.hansanhha.computer"
-version = property "version.ccccomputer"
 
 dependencies {
     testImplementation platform(libs.junit.bom)
