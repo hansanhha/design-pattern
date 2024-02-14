@@ -1,11 +1,11 @@
 # DDD(Domain Driven Design)
 
-1. 비즈니스 도메인이 가지고 있는 복잡한 문제들에 집중하여 해당 도메인에 맞게 모델링하는 소프트웨어 설계 방법  
+* 비즈니스 도메인이 가지고 있는 복잡한 문제들에 집중하여 해당 도메인에 맞게 모델링하는 소프트웨어 설계 방법  
 -> 소프트웨어에 도메인이 해결해야 할 문제를 명확하게 반영할 수 있어야 함
 
-1-1. 소프트웨어의 주요 복잡성이 비즈니스 도메인에서 비롯된다는 전제하에, 비즈니스 도메인과 해당 도메인의 로직을 중심으로 소프트웨어를 설계하고 개발하는 접근 방식
+* 소프트웨어의 주요 복잡성이 비즈니스 도메인에서 비롯된다는 전제하에, 비즈니스 도메인과 해당 도메인의 로직을 중심으로 소프트웨어를 설계하고 개발하는 접근 방식
 
-2. 해당 비즈니스를 잘 알고 있는 전문가와 개발자가 함께 일해야 하기 때문에 소프트웨어 시스템에 비즈니스 도메인 용어와 매치되는 유비쿼터스(Ubiquitous) 언어를 적용
+* 해당 비즈니스를 잘 알고 있는 전문가와 개발자가 함께 일해야 하기 때문에 소프트웨어 시스템에 비즈니스 도메인 용어와 매치되는 유비쿼터스(Ubiquitous) 언어를 적용
 
 Eric Evans의 Domain-Driven Design 책에서 소개하는 객체 개념(Entities, Value Objects, Service Object 등)들은  
 프로그래밍 언어나 다이어그램 표기법처럼 특정 수단을 떠나 객체에 대한 생각을 할 수 있게 함 
@@ -100,8 +100,8 @@ Bounded Context : 배송, 결제
 ### Domain Event
 
 
-참고
-[github:ddd crew](https://github.com/ddd-crew)
+**참고**  
+[github:ddd crew](https://github.com/ddd-crew)  
 [Wikipedia:DDD](https://en.wikipedia.org/wiki/Domain-driven_design)  
 [Wikipedia:Domain](https://en.wikipedia.org/wiki/Domain_(software_engineering))  
 [domain driven design overview](https://developer.axoniq.io/domain-driven-design/overview)    
