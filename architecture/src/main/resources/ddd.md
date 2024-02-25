@@ -75,17 +75,21 @@ Bounded Context마다 독립적인 언어, 모델, 데이터베이스 스키마�
 
 Bounded Context는 논리적인 경계를 통해 도메인 모델을 분리함으로써 일관성을 유지할 수 있음
 
-**독립성을 보장한다?**
-Bounded Context 내에서 도메인 모델은 자신만의 규칙과 로직을 가지며, 다른 Bounded Context로부터 영향을 받지 않음 
+**독립성을 보장한다?**  
+동일한 도메인은 Bounded Context 마다 별도의 규칙과 로직을 가지며, 다른 Bounded Context로부터 영향을 받지 않음 
 
-다음과 같은 상황이 있음  
+```
+예시
+
 도메인 모델 : 주문
 Bounded Context : 배송, 결제
+```
 
-배송 Bounded Context에서의 주문 모델은 배송 관련 규칙과 로직을 가짐(주문의 상태와 배송 정보 등)
-결제 Bounded Context에서의 주문 모델은 결제 관련 규칙과 로직을 가짐(주문의 결제 금액과 방식)
+배송 Bounded Context에서의 주문 : 배송 관련 규칙과 로직(주문 상태, 배송 정보 등)  
 
-동일한 도메인 모델이 각자의 bounded context에서 독립적인 의미와 역할로 해석되어 사용됨
+결제 Bounded Context에서의 주문 : 결제 관련 규칙과 로직(주문 결제 금액, 결제 방식)
+
+-> 동일한 도메인 모델이 각자의 bounded context에서 독립적인 의미와 역할로 해석되어 사용됨
 
 ### Entity
 
