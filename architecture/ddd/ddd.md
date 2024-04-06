@@ -18,9 +18,9 @@
 
 ## 설계 종류
 
-전략적 설계(Strategic Design) : 프로젝트 개념적 설계
+전략적 설계(Strategic Design) : 프로젝트 자체의 개념적 설계
 
-기술적 설계(Tactical Design)  : 프로그래밍 기술적 설계
+기술적 설계(Tactical Design)  : 전략적 설계 기반 프로그래밍 기술적 설계
 
 ### 전략적 설계
 
@@ -58,7 +58,33 @@ Context Map : Bounded Context간의 관계를 나타내는 다이어그램
 
 #### Event Storming
 
-비즈니스 도메인
+Actor, Command, Aggregate, Event, External System, Policy/Rule 정의 및 Bounded Context 도출
+
+예시 참고
+
+[1](https://tech.junhabaek.net/ddd-%EC%A0%84%EB%9E%B5%EC%A0%81-%EC%84%A4%EA%B3%84-event-storming-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%99%B8%EB%B6%80%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%95%A1%ED%84%B0-23ea8af1f457)
+
+[2](https://happycloud-lee.tistory.com/94)
+
+* Actor
+    * Command를 내리는 주체
+    * 판매자, 구매자, 관리자 등
+* Command
+    * Actor의 행위
+* Aggregate
+    * Command를 수행하는 시스템 요소 집합
+    * 루트 엔티티와 기타 엔티티, Value Object로 구성됨
+* External System
+    * 현재 시스템의 Command, Event와 관련된 Command를 외부에서 수행하는 시스템
+    * 외부 시스템의 Event는 자체적으로 발생할 수도 있음
+    * OAuth 로그인, 이메일 발송, 푸시 알림 등
+* Event
+    * Command 수행의 결과, 발생한 일 
+    * 1개의 Command에 1개 이상의 Event 발생
+    * 또는 Command를 수행한 뒤 Event가 발생하지 않을 수도 있음
+* Policy/Rule
+    * Event와 관련된 정책이나 규정
+    * Policy와 Rule은 Command를 발생시킬 수 있음
 
 ### 기술적 설계
 
@@ -78,14 +104,9 @@ Context Map : Bounded Context간의 관계를 나타내는 다이어그램
 
 
 **참고**  
-[github:ddd crew](https://github.com/ddd-crew)  
-[Wikipedia:DDD](https://en.wikipedia.org/wiki/Domain-driven_design)  
-[Wikipedia:Domain](https://en.wikipedia.org/wiki/Domain_(software_engineering))  
-[domain driven design overview](https://developer.axoniq.io/domain-driven-design/overview)    
-[An Introduction to Domain Driven Design](https://www.methodsandtools.com/archive/archive.php?id=97)  
-[Martinfowler-DomainDrivenDesign](https://martinfowler.com/bliki/DomainDrivenDesign.html)  
-[StackOverflow:subdomain](https://stackoverflow.com/questions/73077578/what-actually-is-a-subdomain-in-domain-driven-design)  
 [DDD 핵심만 빠르게 이해하기](ttps://happycloud-lee.tistory.com/94)
 [MSA 에서 유비쿼터스 언어(보편 언어)의 중요성](https://medium.com/dtevangelist/msa-%EC%97%90%EC%84%9C-%EC%9C%A0%EB%B9%84%EC%BF%BC%ED%84%B0%EC%8A%A4-%EC%96%B8%EC%96%B4-%EB%B3%B4%ED%8E%B8-%EC%96%B8%EC%96%B4-%EC%9D%98-%EC%A4%91%EC%9A%94%EC%84%B1-ca22b96aaeea)
 [모두를 위한 DDD](https://blog.doctor-cha.com/introduction-to-domain-driven-design-for-everyone)
+[DDD Eventstorming](https://tech.junhabaek.net/ddd-%EC%A0%84%EB%9E%B5%EC%A0%81-%EC%84%A4%EA%B3%84-event-storming-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%BB%A4%EB%A7%A8%EB%93%9C-%EC%99%B8%EB%B6%80%EC%84%9C%EB%B9%84%EC%8A%A4-%EC%95%A1%ED%84%B0-23ea8af1f457)
+[Domain Driven Design Guige](https://romanglushach.medium.com/domain-driven-design-ddd-a-guide-to-building-scalable-high-performance-systems-5314a7fe053c)
 뤼튼 GPT4
