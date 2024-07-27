@@ -7,4 +7,4 @@
 [운영체제](operating-system/README.md)  
 [자료구조](data-structure/README.md)   
 [프로그래밍 언어](programming-language/README.md)  
-[아키텍처](architecture/src/README.md)
+[Termainl](terminal/README.md)
