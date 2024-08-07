@@ -1,12 +1,8 @@
-[개념](./concepts)
-
-[구현(자바)](./Java)
-
-Array
+## [Array](./concepts/배열.md)
 
 Stack
 
-Linked List (Singly, Doubly, Circular)
+## [Linked List (Singly, Doubly, Circular)](./concepts/연결%20리스트.md)
 
 Tree (Directed, Undirected, Weighted, Unweighted)
 
