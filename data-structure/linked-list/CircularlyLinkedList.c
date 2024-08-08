@@ -72,5 +72,8 @@ int main() {
 
     printList(head);
 
+
+    printList(head);
+
     return 0;
 }
