@@ -13,8 +13,8 @@ class SeparateChainingHashMap:
         self.capacity = 4
         self.buckets: list[[]:Entry] = [[] for _ in range(self.capacity)]
 
-    def hash(self, key: any) -> int:
-        return key % 100
+    def hash(self, key: int) -> int:
+        return key % 10
 
     def load_factor(self) -> float:
         return self.size / self.capacity
@@ -73,23 +73,11 @@ hash_map = SeparateChainingHashMap()
 
 print("===삽입===")
 hash_map.put(1, "hello")
-hash_map.put(2, "separate")
-hash_map.put(3, "chaining")
+hash_map.put(11, "separate")
+hash_map.put(21, "chaining")
 hash_map.put(4, "hash")
 hash_map.put(5, "table")
 hash_map.put(6, "!!")
-hash_map.put(7, 1)
-hash_map.put(8, 2)
-hash_map.put(9, 3)
-hash_map.put(10, 4)
-hash_map.put(11, 5)
-hash_map.put(12, 6)
-hash_map.put(13, 7)
-hash_map.put(14, 8)
-hash_map.put(15, 9)
-hash_map.put(16, 10)
-hash_map.put(17, 11)
-hash_map.put(18, 12)
 
 hash_map.print()
 
@@ -98,7 +86,7 @@ item = hash_map.get(1)
 
 print(item)
 
-print("===삭제(키 값: 9)===")
-hash_map.remove(9)
+print("===삭제(키 값: 11)===")
+hash_map.remove(11)
 
 hash_map.print()
