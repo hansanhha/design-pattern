@@ -31,7 +31,7 @@
 - 트리
 - 연결 리스트
 
-<img src="./images/hash table structure.png" alt="hash table structure" style="width: 70%; height: 70%">
+<img src="../images/hash table structure.png" alt="hash table structure" style="width: 70%; height: 70%">
 
 [출처](https://www.hello-algo.com/en/chapter_hashing/hash_map/#612-simple-implementation-of-a-hash-table)
 
@@ -43,7 +43,7 @@
 
 ## 해시 테이블 기본 작업
 
-[해시 테이블 기본 작업 코드](../hash_map/python/simple_using_hash_map.py)
+[해시 테이블 기본 작업 코드](/python/simple_using_hash_map.py)
 
 **초기화**
 
@@ -84,7 +84,7 @@
 2. 해시 값과 버킷의 수(capacity)를 통해 인덱스를 구함  
 3. 구한 인덱스를 통해 버킷에 접근하여 작업 수행
 
-[배열로 구현된 해시 테이블](../hash_map/python/array_hash_map.py)
+[배열로 구현된 해시 테이블](/python/array_hash_map.py)
 
 ## 해시 충돌
 
@@ -102,7 +102,7 @@
 
 #### Separate Chaining
 
-<img src="./images/hash-table-separate-chaining.png" alt="hash table separate chaining" style="width: 80%; height: 80%"/>
+<img src="../images/hash-table-separate-chaining.png" alt="hash table separate chaining" style="width: 80%; height: 80%"/>
 
 각 버킷에 하나의 엔트리를 저장하는 기본적인 해시 테이블과 달리, 새로운 자료구조를 도입하여 하나의 버킷에 여러 개의 엔트리를 저장하는 방식임
 

@@ -1,12 +1,12 @@
-## [Array](./concepts/배열.md)
+## [Array](./array,%20list/array.md)
 
-## [Linked List (Singly, Doubly, Circular)](./concepts/연결%20리스트.md)
+## [Linked List (Singly, Doubly, Circular)](./array,%20list/linkedlist.md)
 
-## [Hash Table](./concepts/해시%20테이블.md)
+## [Hash Table](./hash%20map(hash%20table)/hash%20table.md)
+
+## Tree (Directed, Undirected, Weighted, Unweighted)(./tree/tree.md)
 
 Stack
-
-Tree (Directed, Undirected, Weighted, Unweighted)
 
 Graph
 

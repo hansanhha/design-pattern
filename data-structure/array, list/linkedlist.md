@@ -37,7 +37,7 @@
 
 ### 단일 연결 리스트 (Singly Linked List)
 
-<img src="./images/Singly linked list.png" alt="단일 연결 리스트">
+<img src="../images/Singly linked list.png" alt="단일 연결 리스트">
 
 각 노드가 다음 노드의 주소만 알고 있는 연결 리스트
 
@@ -47,7 +47,7 @@ tail 노드의 포인터는 null 값을 가짐
 
 ### 이중 연결 리스트 (Doubly Linked List)
 
-<img src="./images/Doubly linked list.png" alt="이중 연결 리스트">
+<img src="../images/Doubly linked list.png" alt="이중 연결 리스트">
 
 각 노드가 이전 노드와 다음 노드의 주소를 알고 있는 연결 리스트
 
@@ -57,7 +57,7 @@ head 노드의 이전 노드 포인터 값(predecessor)과 tail 노드의 다음
 
 ### 원형 연결 리스트 (Circular Linked List)
 
-<img src="./images/Circularly linked list.png" alt="원형 연결 리스트">
+<img src="../images/Circularly linked list.png" alt="원형 연결 리스트">
 
 단일 연결 리스트이면서, tail 노드가 head 노드에 연결되어 있는 연결 리스트
 
