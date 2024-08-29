@@ -224,9 +224,11 @@ root.left = n2
 
 [<img src="../images/bfs.png" alt="bfs">](https://www.hello-algo.com/en/chapter_tree/binary_tree_traversal/#721-level-order-traversal)
 
-트리의 위에서 아래로, 한 레벨을 모두 순회(왼쪽 -> 오른쪽 순)한 후 다음 레벨을 순회하는 방식임
+트리의 위에서 아래로, 한 레벨을 모두 순회(왼쪽 -> 오른쪽 순)한 후 다음 레벨을 방문하는 방식임
 
-폭 우선 탐색(Breadth-First-Search, BFS)라고도 함
+**폭 우선 탐색(Breadth-First Search, BFS)**은 그래프나 트리에서 시작 노드로부터 점점 넓게 탐색함
+
+레벨 순회는 각 레벨을 차례대로 탐색하므로 BFS와 일치함
 
 ```python
 def level_order_bfs(root: TreeNode | None) -> list[any]:
@@ -246,19 +248,76 @@ def level_order_bfs(root: TreeNode | None) -> list[any]:
 
 루트 노드부터 다음 레벨의 노드들을 순차적으로 큐나 연결 리스트 담아서 순회를 돌 수 있음
 
-모든 노드를 방문하므로 노드의 수만큼인 `O(n)`의 시간복잡도를 가짐
+모든 노드를 방문하므로 노드의 수만큼인 `O(n)`의 시간 복잡도를 가짐
 
 #### 전위 순회 (pre-order)
 
+전위, 중위, 후위 순회 방식은 가능한 한 깊이 내려가면서 탐색하는 방식으로, 트리의 각 노드를 특정 순서에 따라 방문함
+
+깊이 우선 탐색(Depth-First Search, DFS)은 특정 경로를 완전히 탐색하기 전에 다른 경로로 가지 않으며, 스택(재귀)을 사용하여 방문한 노드를 추적함
+
+전위/중위/후위는 DFS로 트리의 각 노드를 깊이 우선 탐색하며, `O(n)`의 시간 복잡도를 가짐
+
+전위 순회는 루트 -> 왼쪽 -> 오른쪽 순으로 노드를 방문함
+
+- 현재 노드 방문
+- 왼쪽 서브트리 전위 순회
+- 오른쪽 서브트리 전위 순회
+- ```python
+  def pre_order(root: TreeNode | None, traversal: list[TreeNode]):
+    if root is None:
+        return
+
+    traversal.append(root.val)
+    pre_order(root.left, traversal)
+    pre_order(root.right, traversal)
+  ```
+
 #### 중위 순회 (in-order)
 
+중위 순회는 왼쪽 -> 루트 -> 오른쪽 순으로 노드를 방문함
+
+이진 검색 트리에서 중위 순회를 사용하면 오름차순으로 정렬된 값을 얻을 수 있음
+
+- 왼쪽 서브트리 중위 순회
+- 현재 노드 방문
+- 오른쪽 서브트리 중위 순회
+- ```python
+  def in_order(root: TreeNode | None, traversal: list[TreeNode]):
+    if root is None:
+        return
+
+    in_order(root.left, traversal)
+    traversal.append(root.val)
+    in_order(root.right, traversal)
+  ```
+
 #### 후위 순회 (post-order)
+
+후위 순회는 왼쪽 -> 오른쪽 -> 루트 순으로 노드를 방문함
+
+모든 자식 노드들을 먼저 방문한 후 부모 노드를 방문함
+
+파일 시스템 탐색이나 구문 트리 등의 구조에서 자주 사용됨
+
+- 왼쪽 서브트리 후위 순회
+- 오른쪽 서브트리 후위 순회
+- 현재 노드 방문
+- ```python
+  def post_order(root: TreeNode | None, traversal: list[TreeNode]):
+    if root is None:
+        return
+
+    post_order(root.left, traversal)
+    post_order(root.right, traversal)
+    traversal.append(root.val)
+  ```
 
 ## 이진 탐색 트리 (Binary Search Tree, BST)
 
 [<img src="../images/binary-search-tree.png" alt="binary search tree">](https://www.geeksforgeeks.org/properties-of-binary-tree/)
 
-이진 트리의 한 종류로, 각 노드의 왼쪽 서브 트리는 그 노드보다 작은 값을 가지고, 오른쪽 서브트리는 그 노드보다 큰 값을 가짐
+이진 트리의 한 종류로, 각 노드의 왼쪽 서브 트리는 보다 작은 값을 가지고, 오른쪽 서브트리는 보다 큰 값을 가짐
 
 효율적인 검색과 정렬된 데이터를 유지할 수 있음
 
