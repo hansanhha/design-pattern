@@ -1,13 +1,11 @@
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Optional;
+import java.util.*;
 
 /*
     소스 코드 참고
     https://github.com/williamfiset/Algorithms/blob/master/src/main/java/com/williamfiset/algorithms/datastructures/binarysearchtree/BinarySearchTree.java
     https://www.hello-algo.com/en/chapter_tree/binary_search_tree/#74-binary-search-tree
  */
-class BinarySearchTree<T extends Comparable<T>> {
+public class BinarySearchTree<T extends Comparable<T>> {
 
     private int size;
 
@@ -267,24 +265,113 @@ class BinarySearchTree<T extends Comparable<T>> {
             return depth;
     }
 
-    public Iterator<T> levelOrder() {
+    public abstract class Order implements Iterator<T> {
+        /*
+            자바의 이터레이터는 동시성 처리를 지원하지 않는 fail-fast임
+            구조적 수정 감지를 위해 현재 트리의 길이를 캡처
+        */
+        private final int expectedSize = size;
+        // 이터레이터에서 반환할 노드 값들을 담은 리스트를 필드로 보관
+        protected final Deque<T> elements = new LinkedList<>();
 
-        final int expectedSize = size;
-        var deque = new LinkedList<T>();
-        deque.
+        @Override
+        public boolean hasNext() {
+            if (expectedSize != size)
+                throw new ConcurrentModificationException();
 
+            return !elements.isEmpty();
+        }
 
+        @Override
+        public T next() {
+            if (expectedSize != size)
+                throw new ConcurrentModificationException();
+
+            return elements.pop();
+        }
     }
 
-    public Iterator<T> preOrder() {
+    public Iterator<T> getLevelOrder() {
+        return new Order() {
+            /*
+                인스턴스 초기화 단계에서 레벨 순회를 돌아 노드값을 저장
+                자바의 연결 리스트는 스택 기능을 지원하는 Deque 인터페이스를 구현함
+             */
+            {
+                Deque<TreeNode> q = new LinkedList<>();
+                q.offer(root);
 
+                while (!q.isEmpty()) {
+                    var cur = q.pop();
+                    elements.offer(cur.element);
+
+                    if (cur.left != null)
+                        q.offer(cur.left);
+                    if (cur.right != null)
+                        q.offer(cur.right);
+                }
+            }
+        };
     }
 
-    public Iterator<T> inOrder() {
+    public Iterator<T> getPreOrder() {
+        return new Order() {
+            {
+                Deque<TreeNode> q = new LinkedList<>();
+                q.offer(root);
 
+                while (!q.isEmpty()) {
+                    var cur = q.pop();
+                    elements.offer(cur.element);
+
+                    if (cur.left != null)
+                        q.offer(cur.left);
+                    if (cur.right != null)
+                        q.offer(cur.right);
+                }
+            }
+        };
     }
 
-    public Iterator<T> postOrder() {
+    public Iterator<T> getInOrder() {
+        return new Order() {
+            {
+                Deque<TreeNode> q = new LinkedList<>();
+                q.offer(root);
+                var cur = root;
 
+                while (cur != null || !q.isEmpty()) {
+                    while (cur != null) {
+                        q.offer(cur);
+                        cur = cur.left;
+                    }
+
+                    cur = q.pop();
+                    elements.offer(cur.element);
+
+                    cur = cur.right;
+                }
+            }
+        };
+    }
+
+    public Iterator<T> getPostOrder() {
+        return new Order() {
+            {
+                Deque<TreeNode> q = new LinkedList<>();
+                q.offer(root);
+
+                while (!q.isEmpty()) {
+                    var cur = q.pop();
+                    elements.offer(cur.element);
+
+                    if (cur.left != null)
+                        q.offer(cur.left);
+
+                    if (cur.right != null)
+                        q.offer(cur.right);
+                }
+            }
+        };
     }
 }

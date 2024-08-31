@@ -321,6 +321,8 @@ def level_order_bfs(root: TreeNode | None) -> list[any]:
 
 효율적인 검색과 정렬된 데이터를 유지할 수 있음
 
+[구현 코드(자바)](./java/src.main.java.BinarySearchTree.java)
+
 ## AVL 트리 (Adelson-Velsky and Landis Tree, AVL Tree)
 
 [<img src="../images/AVL-tree.gif" alt="avl tree gif">](https://en.wikipedia.org/wiki/AVL_tree)
