@@ -1,3 +1,5 @@
+[시간 복잡도](./time-complexity.md)
+
 **Searching Algorithms**
 
 Linear Search
