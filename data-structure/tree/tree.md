@@ -26,7 +26,7 @@
 
 [<img src="../images/tree.png" alt="tree">](https://xlinux.nist.gov/dads/HTML/tree.html)
 
-트리는 **계층적 구조**를 표현하는 비선형 자료구조임
+트리는 데이터를 **계층적 구조**로 표현하는 비선형 자료구조임
 
 맨 위의 루트 노드를 시작으로 트리에 접근할 수 있는데, 루트 노드를 제외한 0개 이상의 노드들은 리프 노드이거나 내부 노드로 나뉨
 
@@ -90,9 +90,9 @@
 
 ### 특성
 
-파일 시스템, 조직도 등 같이 계층적인 관계를 표현하기 적합함
+트리는 파일 시스템, 조직도 등 같이 계층적인 관계를 표현하기 적합함
 
-연결 리스트같은 선형적인 자료구조와 달리, 여러 개의 경로를 따라 데이터를 검색하고 저장할 수 있는 비선형 자료구조임
+연결 리스트와 같은 선형적인 자료구조와 달리, 여러 개의 경로를 따라 데이터를 검색하고 저장할 수 있는 비선형 자료구조임
 
 여러 방식으로 순회할 수 있음
 
@@ -192,25 +192,13 @@ root.left = n2
 
 마지막 레벨 h에서 1부터 2^h - 1개까지의 리프 노드를 가질 수 있음
 
-### 균형 이진 트리 (Balanced Binary Tree)
-
-[<img src="../images/balanced-binary-tree.png" alt="balanced binary tree">](https://medium.com/towards-data-science/5-types-of-binary-tree-with-cool-illustrations-9b335c430254)
-
-균형 이진 트리(왼쪽)
-
-모든 노드의 왼쪽 서브트리와 오른쪽 서브트리의 높이 차이가 최대 1 이진 트리
-
-자주 사용되는 균형 이진 트리의 종류로 AVL 트리와 Red-Black 트리가 있음
-
-효율적인 데이터 삽입/삭제를 할 수 있음
-
 ### 이상적인 이진 트리와 피해야 할 이진 트리
 
 <img src="../images/ideal-binary-tree-vs-degeneration-binary-tree.png" alt="a">
 
 가장 좋은 이진 트리의 형태는 "분할 정복"을 최대한 이용할 수 있는 포화 이진 트리임
 
-가장 안좋은 이진 트리의 형태는 모든 노드가 한 쪽으로 치우쳐 있어서 마치 연결 리스트처럼 되어 있는 형태로, 연산이 순차적으로 이뤄져서 시간복잡도가 `O(n)`으로 저하됨
+가장 안좋은 이진 트리의 형태는 모든 노드가 한 쪽으로 치우쳐 있어서 마치 연결 리스트처럼 순차적으로 저장되어 있는 형태로, 연산의 시간복잡도가 `O(n)`으로 저하됨
 
 ### 순회
 
@@ -226,7 +214,7 @@ root.left = n2
 
 트리의 위에서 아래로, 한 레벨을 모두 순회(왼쪽 -> 오른쪽 순)한 후 다음 레벨을 방문하는 방식임
 
-**폭 우선 탐색(Breadth-First Search, BFS)**은 그래프나 트리에서 시작 노드로부터 점점 넓게 탐색함
+레벨 순회는 **폭 우선 탐색(Breadth-First Search, BFS)** 방식으로, 그래프나 트리에서 시작 노드로부터 점점 넓게 탐색함
 
 레벨 순회는 각 레벨을 차례대로 탐색하므로 BFS와 일치함
 
@@ -256,7 +244,7 @@ def level_order_bfs(root: TreeNode | None) -> list[any]:
 
 깊이 우선 탐색(Depth-First Search, DFS)은 특정 경로를 완전히 탐색하기 전에 다른 경로로 가지 않으며, 스택(재귀)을 사용하여 방문한 노드를 추적함
 
-전위/중위/후위는 DFS로 트리의 각 노드를 깊이 우선 탐색하며, `O(n)`의 시간 복잡도를 가짐
+전위/중위/후위는 DFS 방식으로, 트리의 각 노드를 깊이 우선 탐색하며 `O(n)`의 시간 복잡도를 가짐
 
 전위 순회는 루트 -> 왼쪽 -> 오른쪽 순으로 노드를 방문함
 
@@ -323,21 +311,74 @@ def level_order_bfs(root: TreeNode | None) -> list[any]:
 
 [구현 코드(자바)](./java/src.main.java.BinarySearchTree.java)
 
+## 균형 이진 트리 (Balanced Binary Tree)
+
+[<img src="../images/balanced-binary-tree.png" alt="balanced binary tree">](https://medium.com/towards-data-science/5-types-of-binary-tree-with-cool-illustrations-9b335c430254)
+
+자가 균형 이진 트리(왼쪽)
+
+모든 노드의 왼쪽 서브트리와 오른쪽 서브트리의 높이 차이가 최대 1 이진 트리
+
+자주 사용되는 균형 이진 트리의 종류로 AVL 트리와 Red-Black 트리가 있음
+
+효율적인 데이터 삽입/삭제를 할 수 있음
+
 ## AVL 트리 (Adelson-Velsky and Landis Tree, AVL Tree)
 
 [<img src="../images/AVL-tree.gif" alt="avl tree gif">](https://en.wikipedia.org/wiki/AVL_tree)
 
-자가 균형 이진 탐색 트리의 일종으로 각 노드의 서브 트리의 높이 차이가 최대 1이 되도록 유지함
+자가 균형 이진 탐색 트리의 일종으로 AVL 트리는 각 노드의 왼쪽/오른쪽 서브 트리의 높이 차이가 최대 1(-1, 0, 1)이 되도록 유지함 - Balance Factor
 
-삽입과 삭제 시 트리의 균형을 맞추기 위해 회전(Rotation) 연산을 수행함
+삽입과 삭제 시 트리의 균형이 깨지면 그 즉시 회전(Rotation) 연산(단일 회전 또는 이중 회전)을 수행하여 트리의 균형을 바로 잡음
+
+균형을 매우 엄격하게 유지하기 때문에 삽입과 삭제 시 리밸런싱이 자주 일어나며, 리밸런싱에 드는 오버헤드가 레드-블랙 트리보다 큼
 
 자주 변경되는 데이터베이스 인덱스를 관리하거나 높은 삽입과 삭제 빈도를 가진 검색 엔진에서 검색 속도를 최적화하기 위해 사용됨
+
+탐색/삽입/삭제 시간 복잡도: `O(log n)`
+
+### AVL 트리 회전 연산
+
+불균형된 트리 구조에 따라 LL, RR, LR, RR 회전 연산을 수행함  
+
+[회전 연산 이미지 출처](https://www.javatpoint.com/avl-tree)
+
+#### LL 회전
+
+<img src="../images/avl_ll_rotation.jpg" alt="avl ll rotation">
+
+삽입으로 인해 왼쪽 서브 트리가 불균형 상태일 때(Balance Factor >=2) LL(Left-Left) 회전 연산을 사용함
+
+LL 연산은 시계 방향으로 회전하여 노드의 균형을 맞춤
+
+#### RR 회전
+
+<img src="../images/avl_rr_rotation.jpg" alt="avl rr rotation">
+
+LL 회전과 반대로 삽입으로 인해 오른쪽 서브 트리가 불균형 상태일 때(Balance Factor >=2) RR 회전 연산을 사용함
+
+RR 연산은 반시계 방향으로 회전하여 노드의 균형을 맞춤
+
+#### LR 회전
+
+
+
+#### RL 회전
 
 ## Red-Black 트리
 
 [<img src="../images/red-black-tree.png" alt="red black tree" style="width:50%; height:50%;">](https://en.wikipedia.org/wiki/Red%E2%80%93black_tree)
 
 또 다른 자가 균형 이진 탐색 트리의 일종으로, 노드는 빨간색 또는 검은색으로 칠하며 트리의 균형을 유지하기 위한 일종의 규칙을 따름
+
+레드-블랙 트리 규칙
+- 루트 노드: 항상 검정
+- 빨강 노드의 자식: 반드시 검정
+- 루트에서 리프까지의 경로에 놓인 검정 노드의 수: 모두 같아야 함
+
+AVL 트리보다 느슨한 균형 조건을 가지기 때문에 완벽한 높이 균형을 맞추지 않지만 최악의 경우에도 균형이 무너지지 않으며 리밸런싱 오버헤드가 적음
+
+탐색/삽입/삭제 시간 복잡도: `O(log n)`
 
 맵이나 셋 자료구조를 구현하는 데 사용됨 (자바의 TreeMap, TreeSet 등)
 
