@@ -1,6 +1,6 @@
 [트리](#트리)
 
-- [개념](#개념)
+- [용어](#용어)
 - [특성](#특성)
 
 - [일반 트리](#일반-트리-general-tree)
@@ -30,7 +30,7 @@
 
 맨 위의 루트 노드를 시작으로 트리에 접근할 수 있는데, 루트 노드를 제외한 0개 이상의 노드들은 리프 노드이거나 내부 노드로 나뉨
 
-### 개념
+### 용어
 
 **노드 (node)**
 
@@ -69,7 +69,7 @@
 
 **높이 (height)**
 
-- 루트 노드에서 가장 먼 리프 노드까지의 간선 수
+- 혀냊 노드에서 리프 노드까지의 간선 수
 
 **깊이 (depth)**
 
@@ -347,7 +347,7 @@ def level_order_bfs(root: TreeNode | None) -> list[any]:
 
 <img src="../images/avl_ll_rotation.jpg" alt="avl ll rotation">
 
-삽입으로 인해 왼쪽 서브 트리가 불균형 상태일 때(Balance Factor >=2) LL(Left-Left) 회전 연산을 사용함
+트리가 왼쪽으로 치우쳐져 있을 때(left-skewed, Balance Factor >=2) LL(Left-Left) 회전 연산을 사용함
 
 LL 연산은 시계 방향으로 회전하여 노드의 균형을 맞춤
 
@@ -355,15 +355,61 @@ LL 연산은 시계 방향으로 회전하여 노드의 균형을 맞춤
 
 <img src="../images/avl_rr_rotation.jpg" alt="avl rr rotation">
 
-LL 회전과 반대로 삽입으로 인해 오른쪽 서브 트리가 불균형 상태일 때(Balance Factor >=2) RR 회전 연산을 사용함
+LL 회전과 반대로, 오른쪽으로 치우쳐져 있을 때 (right-skewed, Balance Factor >=2) RR 회전 연산을 사용함
 
 RR 연산은 반시계 방향으로 회전하여 노드의 균형을 맞춤
 
 #### LR 회전
 
+<img src="../images/avl_lr_rotation_1.jpg" alt="avl lr rotation 1">
 
+B 노드 삽입으로 인해 C 노드는 BF 값이 2인 불균형 상태인 서브 트리를 가짐 
+
+A 노드는 C의 왼쪽 서브 트리에 해당하고, B 노드는 A의 오른쪽 서브 트리에 해당함
+
+위와 같은 구조처럼 왼쪽 서브 트리와 그 하위 오른쪽 서브 트리로 인해 불균형 상태를 이룰 때 LR 회전 연산을 사용함
+
+LR 연산은 RR 회전 후 LL 회전 연산(총 2회)을 수행함 
+
+<img src="../images/avl_lr_rotation_2-1.jpg" alt="avl lr rotation 2-1">
+<img src="../images/avl_lr_rotation_2-2.jpg" alt="avl lr rotation 2-2">
+
+불균형 서브 트리의 루트(A 노드)를 기준으로 첫 번째 회전 연산인 RR 회전 연산을 수행함
+
+그러면 A 노드는 B 노드의 왼쪽 서브 트리에 위치하게 됨
+
+RR 회전 연산을 수행해도 아직까진 불균형 상태를 이루고 있음
+
+<img src="../images/avl_lr_rotation_3.jpg" alt="avl lr rotation 3">
+
+두 번째 회전 연산인 LL 연산은 불균형 트리를 가지고 있는 서브 트리를 대상으로 수행함
+
+<img src="../images/avl_lr_rotation_4.jpg" alt="avl lr rotation 4">
+
+위와 같이 C 노드는 B 노드의 오른쪽 서브 트리가 되고, A 노드는 B 노드의 왼쪽 서브트리에 위치하게 되어 균형 상태를 되찾음
 
 #### RL 회전
+
+<img src="../images/avl_rl_rotation_1.jpg" alt="avl rl rotation 1">
+
+LR 회전 연산과 반대로, 오른쪽 서브트리와 그 하위의 왼쪽 서브트리로 인해 불균형 상태를 이룰 때 RL 회전 연산을 사용함
+
+RL 회전 연산은 LL 연산, RR 연산을 순차적으로 수행함
+
+<img src="../images/avl_rl_rotation_2-1.jpg" alt="avl rl rotation 2">
+<img src="../images/avl_rl_rotation_2-2.jpg" alt="avl rl rotation 2">
+
+먼저 불균형 서브 트리의 루트 노드인 C 노드를 기준으로 LL 연산을 수행함
+
+LL 회전 연산을 수행해도 아직까진 불균형 상태를 이루고 있음
+
+<img src="../images/avl_rl_rotation_3.jpg" alt="avl rl rotation 3">
+
+두 번째 회전 연산인 RR 연산은 불균형 트리를 가지고 있는 서브 트리를 대상으로 수행함
+
+<img src="../images/avl_rl_rotation_4.jpg" alt="avl rl rotation 4">
+
+위와 같이 C 노드는 B 노드의 오른쪽 서브 트리가 되고, A 노드는 B 노드의 왼쪽 서브트리에 위치하게 되어 균형 상태를 되찾음
 
 ## Red-Black 트리
 
