@@ -1,8 +1,17 @@
-## [자료구조](data-structure/README.md)
-## [알고리즘](algorithm/README.md)
-## [운영체제](operating-system/README.md)
-## [네트워크](network/README.md)  
-## [데이터베이스](database/README.md)  
-## [디자인 패턴](design-pattern/README.md)  
-## [프로그래밍 언어](programming-language/README.md)  
-## [System](system/README.md)
+[basic](basic/README.md)
+
+[datastructures](datastructures/README.md)
+
+[algorithms](algorithm/README.md)
+
+[operating-system](operating-system/README.md)
+
+[network](network/README.md)  
+
+[database](database/README.md)  
+
+[design-patterns](design-patterns/README.md)  
+
+[programming-language](programming-language/README.md)  
+
+[system](system/README.md)
