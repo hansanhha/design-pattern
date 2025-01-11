@@ -2,9 +2,9 @@
 
 [Subroutine](#sub-routine)
 
-[Corutine](#corutine)
+[Coroutine](#coroutine)
 
-[Corutine vs Thread](#corutine-vs-thread)
+[Coroutine vs Thread](#coroutine-vs-thread)
 
 [언어 별 코루틴](#언어-별-코루틴)
 
@@ -120,7 +120,7 @@ class Calculator {
 
 
 
-## Corutine
+## coroutine
 
 
 **실행을 중단하고 다른 루틴으로 제어를 넘겼다가 다시 복귀할 수 있는 루틴**
@@ -161,7 +161,7 @@ class Calculator {
 
 
 
-## Corutine vs Thread 
+## Coroutine vs Thread
 
 
 ### 스레드
