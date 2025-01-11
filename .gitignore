@@ -3,7 +3,6 @@
 gradle
 build
 **/build/
-**/gradle
 **/.gradle
 
 ## Ignore IDE
